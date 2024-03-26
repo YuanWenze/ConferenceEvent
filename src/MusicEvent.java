@@ -1,9 +1,10 @@
 
-    public class MusicConcertEvent {
+public class MusicEvent extends Event implements CalculateEventCostInterface {
         private boolean merchandiseRequired;
         private double merchandiseCost;
     
-        public MusicConcertEvent(boolean merchandiseRequired, double merchandiseCost) {
+        public MusicEvent(String eventID,String eventName,String eventLocation,String pointOfContact,double eventCost, int totalParticipants,int totalEventDays,boolean merchandiseRequired, double merchandiseCost) {
+            super(eventID, eventName, eventLocation, pointOfContact, eventCost, totalParticipants, totalEventDays);
             this.merchandiseRequired = merchandiseRequired;
             this.merchandiseCost = merchandiseCost;
         }

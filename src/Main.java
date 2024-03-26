@@ -4,10 +4,10 @@ public class Main {
         conferenceEvent.calculateEventCost();
         System.out.println(conferenceEvent);
 
-        // PastEvent pastEvent = new PastEvent("E001", "AI Conference", "Paris", "Peng Tian", 50, 2);
-        // //pastEvent.calculateEventCost();
-        // pastEvent.setPaymentDetails("Pending",true);
-        // System.out.println(pastEvent); 
+         PastEvent pastEvent = new PastEvent("E001", "AI Conference", "Paris", "Peng Tian", 50, 2,20);
+         //pastEvent.calculateEventCost();
+         pastEvent.setPaymentDetails("Pending",true);
+         System.out.println(pastEvent); 
     }
     }
 
