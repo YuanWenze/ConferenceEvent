@@ -1,15 +1,23 @@
-public class ConferenceEvent extends Event implements CalculateEventCostInterface{
+public class ConferenceEvent{
     private double breakfastCost;
-    
     private double lunchCost;
-    
     private double dinnerCost;
     private double conferenceEventCost;
+    private String eventID;
+    private String eventName;
+    private String eventLocation;
+    private String pointOfContact;
+    private CalculateEventCostClass calculateEventCostObject;
     public ConferenceEvent(String eventID,String eventName,String eventLocation,String pointOfContact,double eventCost, int totalParticipants,int totalEventDays,double breakfastCost,double lunchCost,double dinnerCost){
-        super(eventID,eventName,eventLocation,pointOfContact, eventCost, totalParticipants,totalEventDays);
+        //super(eventID,eventName,eventLocation,pointOfContact, eventCost, totalParticipants,totalEventDays);
         this.breakfastCost = breakfastCost;
         this.lunchCost = lunchCost;
         this.dinnerCost = dinnerCost;
+        this.eventID = eventID;
+        this.eventName = eventName;
+        this.eventLocation = eventLocation;
+        this.pointOfContact = pointOfContact;
+        this.calculateEventCostObject = new CalculateEventCostClass();
     }
     
     public double getBreakfastCost(){
@@ -27,18 +35,37 @@ public class ConferenceEvent extends Event implements CalculateEventCostInterfac
     public double getDinnerCost(){
         return dinnerCost;
     }
-    public ConferenceEvent(String eventID, String eventName,String eventLocation,String pointOfContact,int totalParticipants,int totalEventDays,double eventCost, boolean breakfastRequired, double breakfastCost,  double lunchCost,  double dinnerCost){
-    super(eventID, eventName, eventLocation, pointOfContact, eventCost, totalParticipants, totalEventDays);
-        this.breakfastCost = breakfastCost;
-        this.lunchCost = lunchCost;
-        this.dinnerCost = dinnerCost;
-    }
+    public String getEventID(){
+        return eventID;
     
-    @Override
-    public void calculateEventCost(){
-        conferenceEventCost = getEventCost() + ((getBreakfastCost() +getLunchCost() + getDinnerCost())*getTotalParticipants() * getEventDays());
     }
+    public void setEventID(String eventID){
+        this.eventID = eventID;
+    }
+    public String getEventName(){
+        return eventName;
+    }
+    public void setEventName(String eventName){
+        this.eventName = eventName;
+    }
+    public String getEventLocation(){
+        return eventLocation;
+    }
+    public void setEventLocation(String location){
+        this.eventLocation = location;
+    }
+    public String getPointOfContact(){
+        return pointOfContact;
+    }
+    public void setPointOfContact(String pointOfContact){
+        this.pointOfContact = pointOfContact;
+    }
+  
+ 
+    public void calculateEventCost(){
+        conferenceEventCost = calculateEventCostObject.calculateEventCost() + (calculateEventCostObject.calculateEventCost() * 0.3);
         //conferenceEventCost = getEventCost() + ((getBreakfastCost() +getLunchCost() + getDinnerCost())*getTotalParticipants() * getEventDays());
+    }
     
     
     @Override
@@ -47,7 +74,6 @@ public class ConferenceEvent extends Event implements CalculateEventCostInterfac
         "Event ID: " + getEventID() + "\n" +
         "Event Name:" + getEventName()+ "\n" +
         "Event Location:"+ getEventLocation() + "\n" +
-        "Total participants: " + getTotalParticipants() + "\n" +
         "Total Conference Cost:"+ conferenceEventCost;
     }
     }

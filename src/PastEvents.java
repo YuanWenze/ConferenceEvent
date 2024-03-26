@@ -1,12 +1,15 @@
-    public class PastEvent extends Event{
-     public static final double pastEventCost = 10_000;
-    
+import java.time.LocalDate;
+
+public class PastEvents{
+    public static final double pastEventCost = 10_000;
+     private LocalDate eventStartDate;
+     private LocalDate eventEndDate;
      private String paymentStatus;
      private boolean requiresExtension;
      private String paymentDetails;
     
-     public PastEvent(String eventID,String eventName,String eventLocation,String pointOfContact, double eventCost, int totalParticipants,int totalEventDays){
-        super(eventID, eventName, eventLocation, pointOfContact, eventCost, totalParticipants, totalEventDays);
+     public PastEvents(String eventID,String eventName,String eventLocation,String pointOfContact, int totalParticipants,int totalEventDays, LocalDate eventStartDate, LocalDate eventEndDate,String paymentStatus,boolean requiresExtension){
+        
      }
      public String getPaymentStatus(){
      return paymentStatus;
@@ -21,14 +24,29 @@
          this.requiresExtension = requiresExtension;
      }
     
-     /*@Override
-     public void calculateEventCost(){
-     System.out.println("Exception: This method does not make sense here,but because of abstract method, something has to be done ")
-     }*/
+   
     
     
     
-     public void calculateCost(){
+     public static double getPasteventcost() {
+        return pastEventCost;
+    }
+    public LocalDate getEventStartDate() {
+        return eventStartDate;
+    }
+    public void setEventStartDate(LocalDate eventStartDate) {
+        this.eventStartDate = eventStartDate;
+    }
+    public LocalDate getEventEndDate() {
+        return eventEndDate;
+    }
+    public void setEventEndDate(LocalDate eventEndDate) {
+        this.eventEndDate = eventEndDate;
+    }
+    public void setPaymentDetails(String paymentDetails) {
+        this.paymentDetails = paymentDetails;
+    }
+    public void calculateCost(){
      
      }
      public void setPaymentDetails(String paymentStatus,boolean requiresExtension){
